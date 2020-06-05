@@ -8,11 +8,11 @@ RUN apt-get install -y maven
 
 WORKDIR /home/
 RUN git clone https://github.com/kliakos/sparkjava-war-example.git
-RUN cd /home/sparkjava-war-example/
+WORKDIR /home/sparkjava-war-example/
 RUN pwd
 RUN mvn package
 RUN cp ./target/*.war /var/lib/tomcat8/webapps/
-RUN service tomcat8 restart
+#RUN service tomcat8 restart
 
 EXPOSE 80
 
